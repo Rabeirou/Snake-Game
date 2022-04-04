@@ -1,0 +1,73 @@
+int x = 300;
+int y = 300;
+int tecla = -1;
+int tecla2= -1;
+
+int w=30,h=30,bs=20,dir=2,ax=12,ay=10;
+int[]dx={0,0,1,-1},dy={1,-1,0,0};
+
+ArrayList<Integer> x1 = new ArrayList<Integer>(), y1 = new ArrayList<Integer>();
+
+void setup(){
+  
+  size(600, 600);
+  // size(w*bs, h*bs);
+  x1.add(5);
+  y1.add(5);
+
+}
+
+void draw(){
+  
+  background(255);
+  
+  for (int i=0;i<w;i++) line(i*bs,0,i*bs,height);
+  for (int i=0;i<h;i++) line(0,i*bs,width,i*bs);
+  for (int i = 0 ; i < x1.size(); i++){
+    rect(x1.get(i)*bs, y1.get(i)*bs, bs, bs);
+    fill(0, 255, 0);
+  }
+   
+
+  
+  if (x>=580) x= 580;
+    
+  if (x<=3) x=3;
+    
+  if (y>=580) y= 580;
+    
+  if (y<=3) y=3;
+    
+
+  switch(tecla){
+    
+    case 38: 
+      y1.add(-3);
+      break;
+    case 40: 
+      y1.add(3);
+      break;
+    case 39: 
+      x1.add(3);
+      break;
+    case 37: 
+      x1.add(-3);
+      break;
+    
+    default:
+    
+  }
+  
+  print("Tecla1:"+tecla+ "  Tecla2:  " + tecla2);
+  println();
+  
+}
+
+void keyPressed(){
+  tecla = keyCode;
+  tecla2 = keyCode;
+}
+
+void keyReleased(){
+  
+}
